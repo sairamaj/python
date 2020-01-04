@@ -43,3 +43,33 @@ print(t)
 
 x,y,z = t   # tuple unpacking
 print(x,y,z)
+
+
+# sets (unordered list, no duplicates)
+fruits = {"orange", "banana","apple","apple"}
+print(fruits)  # apple exists as only one 
+
+a = set('abracadabra')
+b = set('alacazam')
+print("a-b", a-b)
+print("a|b", a|b)
+print("a&b", a&b)
+print("a^b", a^b)       # letters in a or b but not both
+
+# Dictionaries
+testItems = {"one":1, "two":2, "three":3}
+print(testItems)
+print(list(testItems))
+print("one" in testItems)
+print("four" in testItems)
+
+for k,v in testItems.items():
+    print(k,v)
+
+# zip to to combine to iterations in to one iterations
+x = ["one","two","three"]
+y = [1,2,3]
+
+z = zip(x,y)
+for a,b in z:
+    print(a,b)
