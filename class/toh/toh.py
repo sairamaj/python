@@ -15,13 +15,23 @@ class Toh():
         
     
     def move(self, fromTower, toTower):
-        topDisc = self.towers[0].removeTopDisc()
-        self.towers[1].addDisc(topDisc)
+        realFrom = fromTower-1
+        realTo  = toTower-1
+        topDisc = self.towers[realFrom].removeTopDisc()
+        self.towers[realTo].addDisc(topDisc)
         self.draw()
 
     def draw(self):
         for tower in self.towers:
             tower.draw()
+    
+    def isGameOver(self):
+        # check whether any tower other than first one has 3 discs
+        for tower in self.towers[1:]:
+            if tower.getDiscCount() == 3:
+                return True
+        return False
+
 
     
     

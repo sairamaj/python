@@ -15,7 +15,6 @@ class Tower():
         print(f"Tower-{self.name}")
     
     def addDisc(self,disc):
-        print("addDisc", disc.__class__)
         self.discs.append(disc)
 
     def drawPole(self):
@@ -28,4 +27,6 @@ class Tower():
     def removeTopDisc(self):
         return self.discs.pop()
 
+    def getDiscCount(self):
+        return len(self.discs)
     
