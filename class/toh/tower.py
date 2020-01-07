@@ -2,8 +2,9 @@ import disc
 
 
 class Tower():
-    def __init__(self, name):
+    def __init__(self, name, referenceX):
         self.name = name
+        self.referenceX = referenceX
         self.discs = []
 
     def __str__(self):
@@ -13,7 +14,10 @@ class Tower():
         self.drawPole()
         for disc in self.discs[::-1]:
             disc.draw()
-        print(f"Tower-{self.name}".rjust(30))
+        title = f"Tower-{self.name}"
+        pos = int(self.referenceX - (len(title)/2))
+        print(''.rjust(pos), end='')
+        print(title)
 
     def addDisc(self, disc):
         self.validateForAdd(disc)
@@ -23,10 +27,13 @@ class Tower():
         line = "|"
         n = 0
         while n < 4:
-            print(line.rjust(25))
+            print(''.rjust(self.referenceX), end='')
+            print(line)
             n = n+1
 
     def removeTopDisc(self):
+        if len(self.discs) == 0:
+            return None
         return self.discs.pop()
 
     def getDiscCount(self):

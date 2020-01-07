@@ -1,23 +1,28 @@
 import tower
 import disc
+import discFactory
+
+referenceX = 35
 
 class Toh():
     def __init__(self):
         print("in toh.init")
-        towerA = tower.Tower("A")
-        towerA.addDisc(disc.Disc(24))
-        towerA.addDisc(disc.Disc(18))
-        towerA.addDisc(disc.Disc(12))
-        self.towers = [towerA,tower.Tower("B"),tower.Tower("C")]
+        towerA = tower.Tower("A", referenceX)
+        towerA.addDisc(discFactory.DiscFactory(referenceX).getLarge())
+        towerA.addDisc(discFactory.DiscFactory(referenceX).getMedium())
+        towerA.addDisc(discFactory.DiscFactory(referenceX).getSmall())
+        self.towers = [towerA, tower.Tower("B", referenceX), tower.Tower("C", referenceX)]
 
     def start(self):
         self.draw()
-        
-    
+
     def move(self, fromTower, toTower):
         realFrom = fromTower-1
-        realTo  = toTower-1
+        realTo = toTower-1
         topDisc = self.towers[realFrom].removeTopDisc()
+        if topDisc == None:
+            raise Exception(f"Tower {fromTower} does not have any discs.")
+
         try:
             self.towers[realTo].addDisc(topDisc)
         except:
@@ -30,14 +35,11 @@ class Toh():
     def draw(self):
         for tower in self.towers:
             tower.draw()
-    
+            print()
+
     def isGameOver(self):
         # check whether any tower other than first one has 3 discs
         for tower in self.towers[1:]:
             if tower.getDiscCount() == 3:
                 return True
         return False
-
-
-    
-    
