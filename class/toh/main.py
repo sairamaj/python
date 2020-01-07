@@ -1,7 +1,7 @@
 import toh
-
+import ui
 def showCongratulationsMessage():
-    print("Congratulations. Game is over.")
+    ui.printSuccess("Congratulations. Game is over.")
 
 def showUsage():
     print('__________________________________________________')
@@ -22,7 +22,12 @@ while quit==False:
     fromTower = int(input("from:"))
     toTower = int(input("to:"))
     print("from", fromTower, "to", toTower)
-    toh.move(fromTower, toTower)
+    try:
+        toh.move(fromTower, toTower)
+        ui.printSuccess('successfully moved!')
+    except Exception as e:
+        ui.printError(str(e))
+
     # check whether game is over
     if toh.isGameOver() == True:
         showCongratulationsMessage()

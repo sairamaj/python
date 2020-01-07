@@ -18,7 +18,13 @@ class Toh():
         realFrom = fromTower-1
         realTo  = toTower-1
         topDisc = self.towers[realFrom].removeTopDisc()
-        self.towers[realTo].addDisc(topDisc)
+        try:
+            self.towers[realTo].addDisc(topDisc)
+        except:
+            # add disc back in case of errors
+            self.towers[realFrom].addDisc(topDisc)
+            raise
+
         self.draw()
 
     def draw(self):
