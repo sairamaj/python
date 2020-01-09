@@ -19,7 +19,7 @@ Launch visual studio code by typing code at command prompt (or through start men
 
 Type the below and save as HelloWorld.py
 ```py
-print('Hello world)
+print('Hello world')
 ```
 
 At command prompt type the following
