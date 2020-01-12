@@ -1,7 +1,7 @@
 import toh
 import ui
-def showCongratulationsMessage():
-    ui.printSuccess("Congratulations. Game is over.")
+def showCongratulationsMessage(count):
+    ui.printSuccess(f"Congratulations. Game is over. Number of stpes you took:{count}")
 
 def showUsage():
     print('__________________________________________________')
@@ -14,7 +14,7 @@ def showUsage():
 
 toh = toh.Toh()
 toh.start()
-print("move")
+
 quit = False
 showUsage()
 
@@ -30,6 +30,6 @@ while quit==False:
 
     # check whether game is over
     if toh.isGameOver() == True:
-        showCongratulationsMessage()
+        showCongratulationsMessage(toh.getMoveCount())
         quit = True
 

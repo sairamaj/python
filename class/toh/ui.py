@@ -8,3 +8,4 @@ def printError(str1):
 
 def printSuccess(str1):
     print(getattr(Fore, 'GREEN') + str1 + Fore.WHITE)
+

@@ -1,9 +1,12 @@
+from colorama import init
+from colorama import Fore, Back, Style
 import disc
 
 
 class Tower():
-    def __init__(self, name, referenceX):
+    def __init__(self, name, referenceX, color):
         self.name = name
+        self.color = color
         self.referenceX = referenceX
         self.discs = []
 
@@ -28,7 +31,8 @@ class Tower():
         n = 0
         while n < 4:
             print(''.rjust(self.referenceX), end='')
-            print(line)
+            print(Style.BRIGHT + getattr(Fore, self.color) + line + Fore.WHITE)
+            # print(line)
             n = n+1
 
     def removeTopDisc(self):
@@ -45,6 +49,7 @@ class Tower():
 
         topDisc = self.discs[-1]
         if topDisc.getSize() > disc.getSize():
-            return # coming disc is smaller than top of the disc
-        
-        raise Exception(f"Disc {disc.getSize()} is not allowed on disc:{topDisc.getSize()}")
+            return  # coming disc is smaller than top of the disc
+
+        raise Exception(
+            f"Disc {disc.getSize()} is not allowed on disc:{topDisc.getSize()}")

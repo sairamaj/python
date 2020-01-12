@@ -7,11 +7,12 @@ referenceX = 35
 class Toh():
     def __init__(self):
         print("in toh.init")
-        towerA = tower.Tower("A", referenceX)
+        towerA = tower.Tower("1", referenceX,'YELLOW')
         towerA.addDisc(discFactory.DiscFactory(referenceX).getLarge())
         towerA.addDisc(discFactory.DiscFactory(referenceX).getMedium())
         towerA.addDisc(discFactory.DiscFactory(referenceX).getSmall())
-        self.towers = [towerA, tower.Tower("B", referenceX), tower.Tower("C", referenceX)]
+        self.towers = [towerA, tower.Tower("2", referenceX,'MAGENTA'), tower.Tower("3", referenceX,'CYAN')]
+        self.moveCount = 0
 
     def start(self):
         self.draw()
@@ -29,7 +30,7 @@ class Toh():
             # add disc back in case of errors
             self.towers[realFrom].addDisc(topDisc)
             raise
-
+        self.moveCount = self.moveCount +1
         self.draw()
 
     def draw(self):
@@ -43,3 +44,5 @@ class Toh():
             if tower.getDiscCount() == 3:
                 return True
         return False
+    def getMoveCount(self):
+        return self.moveCount
