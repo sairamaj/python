@@ -2,7 +2,7 @@ import tower
 import disc
 import discFactory
 
-referenceX = 35
+referenceX = 45
 
 class Toh():
     def __init__(self):
