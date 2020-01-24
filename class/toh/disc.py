@@ -14,7 +14,8 @@ class Disc:
     def draw(self):
         n = 0
         startPos = int(self.referenceX - (self.size/2))
-        print(''.rjust(startPos), end='')
+        # print(''.rjust(startPos), end='')
+        print(' '*startPos, end='')
         while n < self.size:
             #print('_', end='')
             print(getattr(Fore, self.color) + '_' + Fore.WHITE, end='')

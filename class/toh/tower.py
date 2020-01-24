@@ -19,7 +19,7 @@ class Tower():
             disc.draw()
         title = f"Tower-{self.name}"
         pos = int(self.referenceX - (len(title)/2))
-        print(''.rjust(pos), end='')
+        print(' ' *pos, end='')
         print(title)
 
     def addDisc(self, disc):
@@ -30,7 +30,7 @@ class Tower():
         line = "|"
         n = 0
         while n < 4:
-            print(''.rjust(self.referenceX), end='')
+            print(' ' *self.referenceX, end='')
             print(Style.BRIGHT + getattr(Fore, self.color) + line + Fore.WHITE)
             # print(line)
             n = n+1
