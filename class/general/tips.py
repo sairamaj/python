@@ -43,3 +43,49 @@ print('--------- location of object -------------')
 # location of object
 print(id(x))
 checkAndWait()
+
+print('--------- passing variable arguments -------------')
+def variableArgs(*args):
+    print(args)
+variableArgs(1,2,3)
+checkAndWait()
+
+print('--------- passing variable arguments -------------')
+def variableArgs2(a,b):
+    print('a is',a)
+    print('b is',b)
+
+kwargs = {'a':'this is a', 'b': 'this is b'}
+variableArgs2(**kwargs)
+
+print('--------- list comprehentions -------------')
+# they’re just for-loops over a collection expressed in a more terse and compact syntax
+
+
+
+# values = [expression
+#           for item in collection
+#           if condition]
+
+print([x*x for x in range(10)])
+print([x*x for x in range(10) if x % 2 != 0])
+
+# set comprehensions
+print(set([x*x for x in range(10)]))
+# dictionary comprehensions
+print({x:x*x for x in range(10)})
+#https://dbader.org/blog/list-dict-set-comprehensions-in-python
+
+print('--------- set operations -------------')
+# only immutable one will go in set
+# unorder list
+# duplicates removed
+# union,interset
+# https://snakify.org/en/lessons/sets/#section_4
+x = {1,2,3,4,3,4}
+print(x)
+x = set('abcdef')
+print(x)
+
+
+# https://snakify.org/en/lessons/sets/
